@@ -1,5 +1,6 @@
 import { errorHandler } from "../utils/error.js"
 import bcryptjs from 'bcryptjs';
+
 export const updateUser = async (req, res, next) => {
     if (req.user.id !== req.params.userId) {
         return next(errorHandler(403, 'You are not allowed to update this user'));
@@ -39,3 +40,17 @@ export const updateUser = async (req, res, next) => {
         next(error);
     }
 }
+
+
+export const deleteUser = async(req, res, next) => {
+    if(!req.user.isAdmin && req.user.id !== req.params.userId){
+        return next(errorHandler(403, 'You are not allowed to delete this accound'));
+    }
+    try {
+        await User.findByIdAndDelete(req.params.userId);
+        res.status(200).json('User deleted successfully')
+    } catch (error) {
+        next(error);
+    }
+}
+

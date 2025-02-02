@@ -1,6 +1,8 @@
 import express from 'express';
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.route.js';
+import userRoutes from './routes/user.route.js';
+
 const app = express();
 connectDB();
 
@@ -8,6 +10,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
 
 
 app.use((err, req, res, next) => {
