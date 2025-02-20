@@ -10,8 +10,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const x= axios.post("/api/auth/signin" )
-      body: JSON.stringify(formData),
-    });
     const y= await x.json();
     if (x.status === 200) {
       localStorage.setItem("user", JSON.stringify(y));
