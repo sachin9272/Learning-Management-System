@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,10 +45,10 @@ export default function Header() {
           </button>
           <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400">LMS</h1>
           <nav className="hidden lg:flex gap-4 ml-8">
-            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Courses</a>
-            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
-            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+            <Link to='/' className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</Link>
+            <a href="/courses" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Courses</a>
+            <Link to='/about' className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</Link>
+            <Link to='/contact' className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</Link>
           </nav>
         </div>
 
@@ -82,10 +83,10 @@ export default function Header() {
       {menuOpen && (
         <nav className="lg:hidden bg-white dark:bg-gray-800 dark:text-white shadow-md">
           <ul className="flex flex-col">
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a></li>
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Courses</a></li>
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">About</a></li>
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a></li>
+            <li><Link to='/' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Home</Link></li>
+            <li><Link to='/courses' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Courses</Link></li>
+            <li><Link to='/about' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">About</Link></li>
+            <li><Link to='/contact' className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Contact</Link></li>
           </ul>
         </nav>
       )}
