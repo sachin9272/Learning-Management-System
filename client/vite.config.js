@@ -9,7 +9,6 @@ export default defineConfig({
         target: 'http://localhost:3000', // Proxy to your backend running on port 3000
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''), // Optional path rewrite
       },
     },
   },
