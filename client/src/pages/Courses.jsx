@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+// import { Card, CardContent } from "@/components/ui/card";
+// import { Button } from "@/components/ui/button";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/courses")
-      .then((res) => res.json())
-      .then((data) => setCourses(data))
-      .catch((err) => console.error("Error fetching courses:", err));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/courses")
+  //     .then((res) => res.json())
+  //     .then((data) => setCourses(data))
+  //     .catch((err) => console.error("Error fetching courses:", err));
+  // }, []);
 
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -22,13 +22,13 @@ const Courses = () => {
             <h2 className="text-xl font-bold mb-2">{course.title}</h2>
             <p className="text-gray-600 mb-4">{course.description}</p>
             <div className="flex justify-between">
-              <Button asChild>
+              <button >
                 <Link to={`/courses/${course._id}`}>View Course</Link>
-              </Button>
+              </button>
               {course.quizAvailable && (
-                <Button asChild variant="secondary">
+                <button asChild variant="secondary">
                   <Link to={`/courses/${course._id}/quiz`}>Attach Quiz</Link>
-                </Button>
+                </button>
               )}
             </div>
             {course.pdfLink && (
